@@ -23,16 +23,17 @@ class TapeReader extends ChainedHttpHandler {
 	Response handle(Request request) {
 		def tape = recorder.tape
 		if (!tape) {
-			throw new ProxyException(HTTP_FORBIDDEN, 'No tape')
+			throw new ProxyException(HTTP_FORBIDDEN, 'No tape loaded')
 		} else if (tape.readable && tape.seek(request)) {
-			log.log INFO, "Playing back from '$tape.name'"
+			log.log INFO, "Playing back response from '$tape.name' (found matching request)"
 			def response = tape.play(request)
 			response.addHeader(X_BETAMAX, 'PLAY')
 			response
 		} else if (tape.writable) {
+			log.log INFO, "Forwarding request to remote url (found no matching request)"
 			chain(request)
 		} else {
-			throw new ProxyException(HTTP_FORBIDDEN, 'Tape is read-only')
+			throw new ProxyException(HTTP_FORBIDDEN, 'Tape is read-only and found no matching request')
 		}
 	}
 

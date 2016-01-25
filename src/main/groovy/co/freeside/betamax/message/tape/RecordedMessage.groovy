@@ -15,9 +15,9 @@ abstract class RecordedMessage extends AbstractMessage implements Message {
 
 	final void addHeader(String name, String value) {
 		if (headers[name]) {
-			headers[name] = "${headers[name]}, $value"
+			headers[name] = "${headers[name]}, ${value.toString()}"
 		} else {
-			headers[name] = value
+			headers[name] = value.toString()
 		}
 	}
 

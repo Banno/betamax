@@ -1,9 +1,10 @@
-/.idea
-/.gradle
-/gradle.properties
-/build
-/out
-/_site
+.idea
+src/.idea
+.gradle
+gradle.properties
+build
+out
+_site
 *.iml
 *.ipr
 *.iws
@@ -11,8 +12,8 @@
 **/build
 log.txt
 
-/examples/grails-betamax/target/
+examples/grails-betamax/target/
 *.log
-/.gradletasknamecache
-/src/docs/_site/
+.gradletasknamecache
+src/docs/_site/
 .DS_Store

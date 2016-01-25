@@ -86,6 +86,7 @@ This would ignore values inside <trackingId> and <timestamp> elements.  If more 
 - To see full output in the console, use the '-i -s' flags, e.g. './gradlew clean test -i -s'
 - To build, run './gradlew clean test' (or whatever goals you need).
 - To release, run './gradlew clean test uploadArchives'.  You'll be prompted for Nexus credentials.
+-- To release a snapshot, just append '-SNAPSHOT' to the version property in build.sbt
 - To be compatible with Java 1.7, we must build under 1.7 to avoid an error due to Groovy leveraging new 1.8 things such as ToIntFunction.
-- The version number has the '-banno' suffix, e.g. '1.1.2-banno-SNAPSHOT'
+- The version number has the '-banno' suffix, e.g. '1.1.2-banno'
 - See Brian H. if you have other questions.
